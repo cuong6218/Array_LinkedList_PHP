@@ -10,11 +10,12 @@
     echo $myList1->get(1);
     echo "<br/>";
     // $myList1->sort();
-    $myList1->reset();  
+    // $myList1->reset();  
+    // $myList1->reset();
     print_r ($myList1);
     echo "<br/>";
     // print_r ($myList1->addAll([1,2,3]));
     
     
-    // echo $myList1->isEmpty();    
+    echo $myList1->isEmpty();    
     

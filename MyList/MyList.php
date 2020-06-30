@@ -22,7 +22,7 @@
         }
 
         function clear(){
-            
+            unset($this->arrayList);
         }
 
         function addAll($arr){
@@ -36,15 +36,15 @@
         }
 
         function isEmpty(){
-            if ($this->size() == 0) return false;
-            else return true;
+            if ($this->size() == 0) return 'This array is empty';
+            else return 'This array is not empty';
         }
 
         function sort(){
             asort($this->arrayList);
         }
         function reset(){
-            unset($this->arrayList);
+           array_splice($this->arrayList, 0);
         }
         function size(){
             return count($this->arrayList);
