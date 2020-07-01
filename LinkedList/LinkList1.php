@@ -136,6 +136,11 @@ class LinkList1
         return 'this data: ' . $data . ' is not in Link List';
         
     }
+    function cloneData(){
+        $clone = $this->display();
+        echo '<br/>';
+        print_r ($clone);
+    }
     function display()
     {
         $list = array();
@@ -165,3 +170,6 @@ echo explode('--', $linklist1);
 echo '<pre>';
 print_r($linklist1->display());
 echo '</pre>';
+$linklist1->cloneData();
+$linklist1->cloneData();
+$linklist1->cloneData();
