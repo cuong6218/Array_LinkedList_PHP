@@ -80,7 +80,7 @@ class LinkList1
     }
     function delIndex($index)
     {
-        if ($index ==0 ) $this->delFirst();
+        if ($index == 0) $this->delFirst();
         else {
             $prev = $this->firstNode;
             $current = $this->firstNode;
@@ -91,34 +91,50 @@ class LinkList1
             $prev->link = $current->link;
             $this->count--;
         }
-        
     }
-    function remove($data){
+    function remove($data)
+    {
         $index = $this->indexOf($data);
         $this->delIndex($index);
     }
-    function indexOf($data){
+    function indexOf($data)
+    {
         $index = 0;
         $current = $this->firstNode;
-        while ($current != NULL){
-            if ($current->getNode1()==$data){
+        while ($current != NULL) {
+            if ($current->getNode1() == $data) {
                 return $index;
             }
-            $current=$current->link;
+            $current = $current->link;
             $index++;
         }
         return $index;
     }
-    function get($index){
+    function get($index)
+    {
         $count2 = 0;
         $current = $this->firstNode;
-        while ($count2 <= $index){
-            if ($count2 == $index){
+        while ($count2 <= $index) {
+            if ($count2 == $index) {
                 return $current->getNode1();
             }
             $count2++;
             $current = $current->link;
         }
+    }
+    function checkData($data)
+    {
+        $index = 0;
+        $current = $this->firstNode;
+        while ($current != NULL) {
+            if ($current->getNode1() == $data) {
+                return 'this data: ' . $data . ' is in Link List';
+            }
+            $current = $current->link;
+            $index++;
+        }
+        return 'this data: ' . $data . ' is not in Link List';
+        
     }
     function display()
     {
@@ -137,8 +153,9 @@ $linklist1->addFirst(12);
 $linklist1->addFirst(11);
 $linklist1->addFirst(13);
 $linklist1->addLast(100);
+echo $linklist1->checkData(12);
 // echo $linklist1->get(3);
-$linklist1->remove(11);
+// $linklist1->remove(11);
 // $linklist1->addIndex(2, 105);
 // $linklist1->delFirst();
 // $linklist1->delLast();
