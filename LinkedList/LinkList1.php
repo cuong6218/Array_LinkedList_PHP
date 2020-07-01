@@ -89,19 +89,18 @@ class LinkList1
         $prev->link = $current->link;
         $this->count--;
     }
-    function remove($data){
-        $index = 0;
-        // $node1 = new Node1($data);
-        $current = $this->firstNode;
-        while ($current != NULL){
-            if ($current->getNode1() == $data){
-                $current == NULL;
-            }
-            $current = $current->link;
-            $index++;
-        }
-            
-    }
+    // function remove($data){
+    //     $index = 0;
+    //     // $node1 = new Node1($data);
+    //     $current = $this->firstNode;
+    //     while ($current != NULL){
+    //         if ($current->getNode1() == $data){
+    //             $current->getNode1() == NULL;
+    //         }
+    //         $current = $current->link;
+    //         $index++;
+    //     }
+    // }
     function indexOf($data){
         $index = 0;
         $current = $this->firstNode;
@@ -113,6 +112,17 @@ class LinkList1
             $index++;
         }
         return $index;
+    }
+    function get($index){
+        $count2 = 0;
+        $current = $this->firstNode;
+        while ($count2 <= $index){
+            if ($count2 == $index){
+                return $current->getNode1();
+            }
+            $count2++;
+            $current = $current->link;
+        }
     }
     function display()
     {
@@ -131,7 +141,8 @@ $linklist1->addFirst(12);
 $linklist1->addFirst(11);
 $linklist1->addFirst(13);
 $linklist1->addLast(100);
-$linklist1->remove(100);
+echo $linklist1->get(3);
+// $linklist1->remove(100);
 // $linklist1->addIndex(2, 105);
 // $linklist1->delFirst();
 // $linklist1->delLast();
