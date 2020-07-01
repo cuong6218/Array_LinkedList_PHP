@@ -89,6 +89,15 @@ class LinkList1
         $prev->link = $current->link;
         $this->count--;
     }
+    function remove($obj){
+        $prev = $this->firstNode;
+            $current = $this->firstNode;
+            while ($current != NULL) {
+                if ($current == $obj) $current == NULL;
+                $prev = $current;
+                $current = $current->link;
+            }
+    }
     function display()
     {
         $list = array();
@@ -106,10 +115,11 @@ $linklist1->addFirst(12);
 $linklist1->addFirst(11);
 $linklist1->addFirst(13);
 $linklist1->addLast(100);
+$linklist1->remove(100);
 // $linklist1->addIndex(2, 105);
 // $linklist1->delFirst();
 // $linklist1->delLast();
-$linklist1->delIndex(2);
+// $linklist1->delIndex(2);
 echo explode('--', $linklist1);
 echo '<pre>';
 print_r($linklist1->display());
