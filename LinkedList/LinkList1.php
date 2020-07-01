@@ -80,27 +80,23 @@ class LinkList1
     }
     function delIndex($index)
     {
-        $prev = $this->firstNode;
-        $current = $this->firstNode;
-        for ($i = 0; $i < $index; $i++) {
-            $prev = $current;
-            $current = $current->link;
+        if ($index ==0 ) $this->delFirst();
+        else {
+            $prev = $this->firstNode;
+            $current = $this->firstNode;
+            for ($i = 0; $i < $index; $i++) {
+                $prev = $current;
+                $current = $current->link;
+            }
+            $prev->link = $current->link;
+            $this->count--;
         }
-        $prev->link = $current->link;
-        $this->count--;
+        
     }
-    // function remove($data){
-    //     $index = 0;
-    //     // $node1 = new Node1($data);
-    //     $current = $this->firstNode;
-    //     while ($current != NULL){
-    //         if ($current->getNode1() == $data){
-    //             $current->getNode1() == NULL;
-    //         }
-    //         $current = $current->link;
-    //         $index++;
-    //     }
-    // }
+    function remove($data){
+        $index = $this->indexOf($data);
+        $this->delIndex($index);
+    }
     function indexOf($data){
         $index = 0;
         $current = $this->firstNode;
@@ -141,13 +137,13 @@ $linklist1->addFirst(12);
 $linklist1->addFirst(11);
 $linklist1->addFirst(13);
 $linklist1->addLast(100);
-echo $linklist1->get(3);
-// $linklist1->remove(100);
+// echo $linklist1->get(3);
+$linklist1->remove(11);
 // $linklist1->addIndex(2, 105);
 // $linklist1->delFirst();
 // $linklist1->delLast();
-// $linklist1->delIndex(2);
-echo ($linklist1->indexOf(12));
+// $linklist1->delIndex(0);
+// echo ($linklist1->indexOf(12));
 echo explode('--', $linklist1);
 echo '<pre>';
 print_r($linklist1->display());
